@@ -1,0 +1,76 @@
+
+
+
+
+ADDI R1 R0  0
+ADDI R2 R0 12 
+ADDI R3 R0 29 
+ADDI R4 R0 31 
+ADDI R5 R0 2  
+ADDI R6 R0 3  
+LW R7 0(R1)   
+LW R8 1(R1)   
+LW R9 1(R3)   
+LW R10 2(R3)
+ADD R11 R9 R7 
+ADD R12 R10 R8 
+SW R11 19R4)  
+SW R12 2(R4)  
+ADDI R1 R1 1  
+LW R11 1(R4)  
+LW R12 2(R4)  
+LW R7 0(R5)   
+LW R8 0(R6)   
+ADDI R5 R5 2  
+ADDI R6 R6 2  
+NOR R13 R11 R11 
+NOR R14 R12 R12 
+AND R15 R11 R14 
+AND R16 R12 R13 
+  
+ADDI R18 R0 31  
+OR R17 R15 R16  
+ADDI R19 R0 0   
+AND R20 R18 R12 
+ADD R21 R17 R0  
+
+BEQ R19 R20 10          
+SHL R17 R17 1          
+
+ 
+ADDI R19 R19 1          
+ADDI R0 R0 0            
+
+BNE R19 R20 -4          
+
+ADDI R19 R0 0           
+SUB R20 R18 R20         
+SHR R21 R21 1           
+ADDI R19 R19 1          
+BNE R19 R20 -3          
+OR R17 R17 R21          
+ADD R11 R17 r7 
+Nor r13 r11 r11         
+And r15 r11 r14         
+And r16 r12 r13         
+or r17 r15 r16          
+addi r19 r0 0           
+and r20 r18 r11                                                        
+add r21 r17 r0         
+beq r19 r20 10          
+shl r17 r17 1
+addi r19 r19 1          
+addi r0 r0 0
+bne r19 r20 -4
+addi r19 r0 0          
+SUB r20 r18 r20         
+shr r21 r21 1
+addi r19 r19 1        
+bne r19 r20 -3   
+and r12 r17 r8 
+or r17 r17 r21          
+addi r1 r1 1            
+sw r11, 1(r4)           
+sw r12, 2(r4)           
+Bne r1 r2 -50           
+HAL
